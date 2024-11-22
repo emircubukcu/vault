@@ -9,13 +9,13 @@ import { RedirectToSignIn } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 interface MemberIdPageProps {
-    params: {
+    params: Promise<{
         memberId: string;
         serverId: string;
-    },
-    searchParams: {
+    }>,
+    searchParams: Promise<{
         video?: boolean
-    }
+    }>
 }
 
 const MemberIdPage = async ({
@@ -23,13 +23,17 @@ const MemberIdPage = async ({
     searchParams
 }: MemberIdPageProps) => {
     const profile = await currentProfile()
+
+    const {memberId,serverId}=await params
+    const {video}=await searchParams
+
     if (!profile) {
         return RedirectToSignIn;
     }
 
     const currentMember = await db.member.findFirst({
         where: {
-            serverId: params.serverId,
+            serverId: serverId,
             profileId: profile.id
         },
         include: {
@@ -40,10 +44,10 @@ const MemberIdPage = async ({
         return redirect("/")
     }
 
-    const conversation = await getOrCreateConversation(currentMember.id, params.memberId)
+    const conversation = await getOrCreateConversation(currentMember.id, memberId)
 
     if (!conversation) {
-        return redirect(`/servers/${params.serverId}`);
+        return redirect(`/servers/${serverId}`);
     }
     const { memberOne, memberTwo } = conversation;
 
@@ -51,15 +55,15 @@ const MemberIdPage = async ({
 
     return (
         <div className="bg-white dark:bg-[#313338] flex flex-col h-full">
-            <ChatHeader imageUrl={otherMember.profile.imageUrl} name={otherMember.profile.name} serverId={params.serverId} type="conversation" />
-            {!searchParams.video && (
+            <ChatHeader imageUrl={otherMember.profile.imageUrl} name={otherMember.profile.name} serverId={serverId} type="conversation" />
+            {!video && (
                 <>
                     <ChatMessages member={currentMember} name={otherMember.profile.name} chatId={conversation.id} type="conversation" apiUrl="/api/direct-messages" paramKey="conversationId" paramValue={conversation.id} socketUrl="/api/socket/direct-messages" socketQuery={{ conversationId: conversation.id }} />
                     <ChatInput name={otherMember.profile.name} type="conversation" apiUrl="/api/socket/direct-messages" query={{ conversationId: conversation.id }} />
                 </>
             )}
-            {searchParams.video&& (
-                <MediaRoom chatId={conversation.id} video={true} audio={true}/>
+            {video && (
+                <MediaRoom chatId={conversation.id} video={true} audio={true} />
             )}
         </div>
     );
