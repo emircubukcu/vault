@@ -6,7 +6,7 @@
     "prefer-const":"off",
     "no-var":"off",
     "react-hooks/exhaustive-deps":"off",
-    "@typescript-eslint/no-unused-expressions":"off",
-    
+    "@typescript-eslint/no-unused-expressions":"off"
+
   }
 }
