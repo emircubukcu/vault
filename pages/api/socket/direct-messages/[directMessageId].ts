@@ -122,7 +122,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponseS
                             profile: true
                         }
                     }
-                }
+                } 
             })
         }
 
