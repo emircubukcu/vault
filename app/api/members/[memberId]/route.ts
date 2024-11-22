@@ -60,10 +60,11 @@ export async function PATCH(
         return new NextResponse("Internal Error", { status: 500 })
     }
 }
-export async function DELETE(req: Request, { params }: { params: { memberId: string } }) {
+export async function DELETE(req: Request, { params }: { params: Promise<{ memberId: string }> }) {
 
     try {
         const profile = await currentProfile()
+        const {memberId}=await params
 
         const { searchParams } = new URL(req.url);
         const serverId = searchParams.get("serverId")
@@ -74,7 +75,7 @@ export async function DELETE(req: Request, { params }: { params: { memberId: str
         if (!serverId) {
             return new NextResponse("Server ID missing", { status: 400 })
         }
-        if (!params.memberId) {
+        if (!memberId) {
             return new NextResponse("Member ID missing", { status: 400 })
         }
         const server = await db.server.update({
@@ -85,7 +86,7 @@ export async function DELETE(req: Request, { params }: { params: { memberId: str
             data: {
                 members: {
                     deleteMany: {
-                        id: params.memberId,
+                        id:memberId,
                         profileId: {
                             not: profile.id
                         }

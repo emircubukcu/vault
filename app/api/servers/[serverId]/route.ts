@@ -2,9 +2,11 @@ import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 
-export async function PATCH(req: Request, { params }: { params: { serverId: string } }) {
+export async function PATCH(req: Request, { params }: { params: Promise<{ serverId: string }> }) {
     try {
         const profile = await currentProfile()
+        const {serverId}=await params
+
         const { name, imageUrl } = await req.json();
 
         if (!profile) {
@@ -12,7 +14,7 @@ export async function PATCH(req: Request, { params }: { params: { serverId: stri
         }
         const server = await db.server.update({
             where: {
-                id: params.serverId,
+                id: serverId,
                 profileId:profile.id
             },
             data: {
@@ -28,16 +30,17 @@ export async function PATCH(req: Request, { params }: { params: { serverId: stri
     }
 }
 
-export async function DELETE(req: Request, { params }: { params: { serverId: string } }) {
+export async function DELETE(req: Request, { params }: { params: Promise<{ serverId: string }> }) {
     try {
         const profile = await currentProfile()
+        const {serverId} =await params
 
         if (!profile) {
             return new NextResponse("Unauthorized", { status: 401 })
         }
         const server = await db.server.delete({
             where: {
-                id: params.serverId,
+                id: serverId,
                 profileId:profile.id
             }
         })
