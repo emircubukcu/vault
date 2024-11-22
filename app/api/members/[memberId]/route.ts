@@ -4,10 +4,11 @@ import { NextResponse } from "next/server"
 
 export async function PATCH(
     req: Request,
-    { params }: { params: { memberId: string } }
+    { params }: { params: Promise<{ memberId: string } >}
 ) {
     try {
         const profile = await currentProfile()
+        const {memberId}=await params
         const { searchParams } = new URL(req.url);
         const { role } = await req.json()
 
@@ -19,7 +20,7 @@ export async function PATCH(
         if (!serverId) {
             return new NextResponse("Server ID missing", { status: 400 })
         }
-        if (!params.memberId) {
+        if (!memberId) {
             return new NextResponse("Member ID missing", { status: 400 })
         }
         const server = await db.server.update({
@@ -31,7 +32,7 @@ export async function PATCH(
                 members: {
                     update: {
                         where: {
-                            id: params.memberId,
+                            id: memberId,
                             profileId: {
                                 not: profile.id
                             }
