@@ -2,19 +2,19 @@ import type { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Next.js App',
-    short_name: 'Next.js App',
-    description: 'Next.js App',
+    name: 'DiscordClone',
+    short_name: 'DiscordClone',
+    description: 'DiscordClone App',
     start_url: '/',
     display: 'standalone',
-    background_color: '#fff',
-    theme_color: '#fff',
+    background_color: '#000',
+    theme_color: '#000',
     orientation:"landscape",
     icons: [
       {
-        src: 'icon.png',
+        src: 'pwaIcon.jpg',
         sizes: 'any',
-        type: 'image/png',
+        type: 'image/jpg',
       },
     ],
     screenshots: [
