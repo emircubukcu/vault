@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 import { subscribeUser, unsubscribeUser, sendNotification } from './actions'
 
+import webpush from 'web-push'
+
 function urlBase64ToUint8Array(base64String: string) {
     const padding = '='.repeat((4 - (base64String.length % 4)) % 4)
     const base64 = (base64String + padding)
@@ -50,7 +52,25 @@ function PushNotificationManager() {
             ),
         })
         setSubscription(sub)
-        await subscribeUser(sub)
+
+        const decoder=new TextDecoder();
+
+        var tempAuth= sub.getKey("auth")!
+        var tempP256dh=sub.getKey("p256dh")!
+
+        var authStr=decoder.decode(tempAuth)
+        var p256Str=decoder.decode(tempP256dh)
+
+        var tempSub: webpush.PushSubscription={
+            keys:{
+                auth:authStr,
+                p256dh:p256Str
+            },
+            endpoint:sub.endpoint,
+            expirationTime:sub.expirationTime
+        }
+
+        await subscribeUser(tempSub)
     }
 
     async function unsubscribeFromPush() {
