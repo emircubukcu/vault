@@ -12,24 +12,24 @@ export default function manifest(): MetadataRoute.Manifest {
     orientation:"landscape",
     icons: [
       {
-        src: '../public/icon.png',
+        src: 'icon.png',
         sizes: 'any',
         type: 'image/png',
       },
     ],
     screenshots: [
       {
-        src: "../public/screenShot.png",
+        src: "screenShot.png",
         sizes: "640x320",
         type: "image/png",
         form_factor: "wide",
         label: "Application"
       },
       {
-        src: "../public/screenShot2.png",
+        src: "screenShot2.png",
         sizes: "640x320",
         type: "image/png",
-        form_factor: "wide",
+        form_factor: "narrow",
         label: "Application"
       }
     ]
