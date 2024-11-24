@@ -12,7 +12,7 @@ export default function manifest(): MetadataRoute.Manifest {
     orientation:"landscape",
     icons: [
       {
-        src: 'pwaIcon.jpg',
+        src: 'icon.jpg',
         sizes: 'any',
         type: 'image/jpg',
       },
@@ -20,14 +20,14 @@ export default function manifest(): MetadataRoute.Manifest {
     screenshots: [
       {
         src: "screenShot.png",
-        sizes: "640x320",
+        sizes: "1013x431",
         type: "image/png",
         form_factor: "wide",
         label: "Application"
       },
       {
         src: "screenShot2.png",
-        sizes: "640x320",
+        sizes: "605x315",
         type: "image/png",
         form_factor: "narrow",
         label: "Application"
