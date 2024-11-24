@@ -17,9 +17,6 @@ import { FileUpload } from "@/components/file-upload";
 import axios from "axios"
 import { useRouter } from "next/navigation";
 
-
-'use client'
-
 import { subscribeUser, unsubscribeUser, sendNotification } from '@/app/actions'
 
 import webpush from 'web-push'
