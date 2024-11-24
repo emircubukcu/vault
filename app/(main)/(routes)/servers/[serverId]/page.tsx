@@ -1,3 +1,4 @@
+
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { RedirectToSignIn } from "@clerk/nextjs";
@@ -14,7 +15,7 @@ const ServerPage = async ({
     params
 }: ServerIdPageProps) => {
     const profile = await currentProfile()
-    const {serverId}=await params
+    const { serverId } = await params
 
     if (!profile) {
         return RedirectToSignIn;

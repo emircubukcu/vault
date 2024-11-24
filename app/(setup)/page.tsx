@@ -1,30 +1,32 @@
 import { initialProfile } from "@/lib/inital-profile";
-import {db} from "@/lib/db"
+import { db } from "@/lib/db"
 import { read } from "fs";
 import { redirect } from "next/navigation";
 import { InitialModal } from "@/components/modals/initial-modal";
 
-const SetupPage = async() => {
-    const profile=await initialProfile()
+const SetupPage = async () => {
+    const profile = await initialProfile()
 
-    const server =await db.server.findFirst({
-        where:{
-            members:{
-                some:{
+    const server = await db.server.findFirst({
+        where: {
+            members: {
+                some: {
                     //@ts-ignore
-                    profileId:profile.id
+                    profileId: profile.id
                 }
             }
         }
     })
 
-    if(server){
+    if (server) {
         return redirect(`/servers/${server.id}`)
     }
 
-    return (  
-        <InitialModal/>
+    return (
+        <>
+            <InitialModal />
+        </>
     );
 }
- 
+
 export default SetupPage;

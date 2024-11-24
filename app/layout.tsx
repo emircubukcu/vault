@@ -10,6 +10,7 @@ import { ThemeProvider } from "@/components/ui/providers/theme-provider";
 import { ModalProvider } from "@/components/ui/providers/modal-provider";
 import { SocketProvider } from "@/components/ui/providers/socket-provider";
 import { QueryProvider } from "@/components/ui/providers/query-provider";
+import manifest from "./manifest";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,10 +25,13 @@ const geistMono = localFont({
 
 const openSansFont = Open_Sans({ subsets: [] })
 
+
 export const metadata: Metadata = {
   title: "Discord Clone",
   description: "Discord Clone",
-};
+}; 
+
+manifest()
 
 export default function RootLayout({
   children,
