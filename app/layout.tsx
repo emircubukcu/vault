@@ -27,9 +27,9 @@ const openSansFont = Open_Sans({ subsets: [] })
 
 
 export const metadata: Metadata = {
-  title: "Discord Clone",
-  description: "Discord Clone",
-}; 
+  title: "Vault | Chat",
+  description: "Vault Chat Application",
+};
 
 manifest()
 
@@ -41,9 +41,11 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <head></head>
+        <head>
+          <link rel="icon" href="/darkIcon.ico" />
+        </head>
         <body className={cn(`${openSansFont.className} antialiased`, "bg-white dark:bg-[#313338]")}>
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} storageKey="discord-theme">
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} storageKey="vault-theme">
             <SocketProvider>
               <ModalProvider />
               <QueryProvider>

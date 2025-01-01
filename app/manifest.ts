@@ -2,9 +2,9 @@ import type { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Kümes',
-    short_name: 'Kümes',
-    description: 'Kümes App',
+    name: 'Vault',
+    short_name: 'Vault',
+    description: 'Vault Chat App',
     start_url: '/',
     display: 'standalone',
     background_color: '#000',
@@ -12,7 +12,7 @@ export default function manifest(): MetadataRoute.Manifest {
     orientation:"portrait",
     icons: [
       {
-        src: 'icon_Light.png',
+        src: 'darkIcon.png',
         sizes: 'any',
         type: 'image/png',
       },
