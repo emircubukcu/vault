@@ -66,7 +66,7 @@ export const EditServerModal = () => {
 
     return (
         <Dialog open={isModalOpen} onOpenChange={handleClose}>
-            <DialogContent className="bg-white text-black p-0 overflow-hidden">
+            <DialogContent className="bg-white dark:bg-[#1E1F22] dark:text-white text-black p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6" >
                     <DialogTitle className="text-2xl text-center font-bold">
                         Sunucunuzu özelleştirin
@@ -89,15 +89,15 @@ export const EditServerModal = () => {
                             </div>
                             <FormField control={form.control} name="name" render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">Sunucu ismi</FormLabel>
+                                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white/80">Sunucu ismi</FormLabel>
                                     <FormControl>
-                                        <Input disabled={isLoading} className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0" placeholder="Sunucu ismi giriniz" {...field} />
+                                        <Input disabled={isLoading} className="bg-zinc-300/50 border-0 dark:bg-[#2B2D31] dark:text-white/60 focus-visible:ring-0 text-black focus-visible:ring-offset-0" placeholder="Sunucu ismi giriniz" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )} />
                         </div>
-                        <DialogFooter className="bg-gray-100 px-6 py-4">
+                        <DialogFooter className="bg-gray-100 dark:bg-[#2B2D31] px-6 py-4">
                             <Button type="submit" variant={"primary"} disabled={isLoading}>Kaydet</Button>
                         </DialogFooter>
                     </form>

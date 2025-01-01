@@ -8,14 +8,14 @@ export const SocketIndicator=()=>{
 
     if(!isConnected){
         return(
-            <Badge variant="outline" className="bg-yellow-600 text-white border-none">
-                Socket Bağlantısı Kurulamadı (Saniyelik güncelleme ile devam ediliyor)
-            </Badge>
+            <div className="rounded-full w-2 h-2 bg-yellow-600 text-white border-none">
+                
+            </div>
         )
     }
     return(
-        <Badge variant="outline" className="bg-emerald-600 text-white border-none">
-            Socket:LIVE
-        </Badge>
+        <div className="rounded-full w-2 h-2 bg-emerald-600 text-white border-none">
+            
+        </div>
     )
 }

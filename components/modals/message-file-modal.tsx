@@ -25,7 +25,7 @@ export const MessageFileModal = () => {
     const router = useRouter();
 
     const isModalOpen = isOpen && type === "messageFile";
-    const {apiUrl,query}=data;
+    const { apiUrl, query } = data;
 
     const handleClose = () => {
         form.reset()
@@ -43,13 +43,13 @@ export const MessageFileModal = () => {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            const url=qs.stringifyUrl({
-                url:apiUrl||"",
+            const url = qs.stringifyUrl({
+                url: apiUrl || "",
                 query,
             })
             await axios.post(url, {
                 ...values,
-                content:values.fileUrl,
+                content: values.fileUrl,
             });
 
             form.reset()
@@ -62,7 +62,7 @@ export const MessageFileModal = () => {
     }
     return (
         <Dialog open={isModalOpen} onOpenChange={handleClose}>
-            <DialogContent className="bg-white text-black p-0 overflow-hidden">
+            <DialogContent className="bg-white dark:bg-[#1E1F22] dark:text-white text-black p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6" >
                     <DialogTitle className="text-2xl text-center font-bold">
                         Dosya Ekle
@@ -84,7 +84,7 @@ export const MessageFileModal = () => {
                                 )} />
                             </div>
                         </div>
-                        <DialogFooter className="bg-gray-100 px-6 py-4">
+                        <DialogFooter className="bg-gray-100 dark:bg-[#2B2D31] px-6 py-4">
                             <Button type="submit" variant={"primary"} disabled={isLoading}>Gönder</Button>
                         </DialogFooter>
                     </form>

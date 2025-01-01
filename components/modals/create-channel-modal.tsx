@@ -82,7 +82,7 @@ export const CreateChannelModal = () => {
 
     return (
         <Dialog open={isModalOpen} onOpenChange={handleClose}>
-            <DialogContent className="bg-white text-black p-0 overflow-hidden">
+            <DialogContent className="bg-white dark:bg-[#1E1F22] dark:text-white text-black p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6" >
                     <DialogTitle className="text-2xl text-center font-bold">
                         Kanal Oluştur
@@ -93,19 +93,19 @@ export const CreateChannelModal = () => {
                         <div className="space-y-8 px-6">
                             <FormField control={form.control} name="name" render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">Kanal ismi</FormLabel>
+                                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white/80">Kanal ismi</FormLabel>
                                     <FormControl>
-                                        <Input disabled={isLoading} className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0" placeholder="Kanal ismi giriniz" {...field} />
+                                        <Input disabled={isLoading} className="bg-zinc-300/50 dark:bg-[#2B2D31] dark:text-white/60 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0" placeholder="Kanal ismi giriniz" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )} />
                             <FormField control={form.control} name="type" render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Kanal Tipi</FormLabel>
+                                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white/80">Kanal Tipi</FormLabel>
                                     <Select disabled={isLoading} onValueChange={field.onChange} defaultValue={field.value}>
                                         <FormControl>
-                                            <SelectTrigger className="bg-zinc-300/50 border-0 focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none">
+                                            <SelectTrigger className="bg-zinc-300/50 dark:bg-[#2B2D31] dark:text-white/60 border-0 focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none">
                                                 <SelectValue placeholder="Kanal tipi seçiniz" />
                                             </SelectTrigger>
                                         </FormControl>
@@ -121,7 +121,7 @@ export const CreateChannelModal = () => {
                                 </FormItem>
                             )} />
                         </div>
-                        <DialogFooter className="bg-gray-100 px-6 py-4">
+                        <DialogFooter className="bg-gray-100 dark:bg-[#2B2D31] px-6 py-4">
                             <Button type="submit" variant={"primary"} disabled={isLoading}>Oluştur</Button>
                         </DialogFooter>
                     </form>

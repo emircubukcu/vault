@@ -138,7 +138,7 @@ export const ChatItem = ({
                 <div className="flex flex-col w-full">
                     <div className="flex items-center gap-x-2">
                         <div className="flex items-center">
-                            <p onClick={onMemberClick}  className="font-semibold text-sm hover:underline cursor-pointer">
+                            <p onClick={onMemberClick}  className="font-semibold text-sm hover:underline cursor-pointer break-all">
                                 {member.profile.name}
                             </p>
                             <ActionTooltip label={member.role}>
@@ -161,7 +161,7 @@ export const ChatItem = ({
                         </div>
                     )}
                     {!fileUrl && !isEditing && (
-                        <p className={cn("text-sm text-zinc-600 dark:text-zinc-300", deleted && "italic text-zinc-500 dark:text-zinc-400 text-xs mt-1")}>
+                        <p className={cn("break-all text-sm text-zinc-600 dark:text-zinc-300", deleted && "italic text-zinc-500 dark:text-zinc-400 text-xs mt-1")}>
                             {content}
                             {isUpdated && !deleted && (
                                 <span className="text-[10px] mx-2 text-zinc-500 dark:text-zinc-400">(Düzenlendi)</span>

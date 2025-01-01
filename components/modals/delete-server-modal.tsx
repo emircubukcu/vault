@@ -32,7 +32,7 @@ export const DeleteServerModal = () => {
 
     return (
         <Dialog open={isModalOpen} onOpenChange={onClose}>
-            <DialogContent className="bg-white text-black p-0 overflow-hidden">
+            <DialogContent className="bg-white dark:bg-[#1E1F22] dark:text-white text-black p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6" >
                     <DialogTitle className="text-2xl text-center font-bold">
                         Sunucuyu Sil
@@ -42,7 +42,7 @@ export const DeleteServerModal = () => {
                         <span className="font-semibold text-indigo-500">{server?.name}</span> isimli sunucuyu tamamen silinecek
                     </DialogDescription>
                 </DialogHeader>
-                <DialogFooter className="bg-gray-100 px-6 py-4">
+                <DialogFooter className="bg-gray-100 dark:bg-[#2B2D31]  px-6 py-4">
                     <div className="flex items-center justify-between w-full">
                         <Button disabled={isLoading} onClick={onClose} variant="ghost">İptal</Button>
                         <Button disabled={isLoading} onClick={onClick} variant="primary">Onayla</Button>

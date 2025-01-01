@@ -74,7 +74,7 @@ export const MembersModal = () => {
 
     return (
         <Dialog open={isModalOpen} onOpenChange={onClose}>
-            <DialogContent className="bg-white text-black overflow-hidden">
+            <DialogContent className="bg-white dark:bg-[#1E1F22] dark:text-white text-black overflow-hidden">
                 <DialogHeader className="pt-8 px-6" >
                     <DialogTitle className="text-2xl text-center font-bold">
                         Kullanıcılar Yönet
