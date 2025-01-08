@@ -187,7 +187,7 @@ export const MediaRoom = ({
 
     return (
         <LiveKitRoom data-lk-theme="default" serverUrl={process.env.NEXT_PUBLIC_LIVEKIT_URL} token={token} connect={true} video={video} audio={audio}>
-            <VideoConference2 />
+            <VideoConference />
         </LiveKitRoom>
     )
 }
