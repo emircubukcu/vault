@@ -40,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en" suppressHydrationWarning>
+      <html lang="tr" suppressHydrationWarning>
         <head>
           <link rel="icon" href="/darkIcon.ico" />
         </head>
