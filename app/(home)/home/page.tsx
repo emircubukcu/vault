@@ -7,7 +7,6 @@ import { InitialModal } from "@/components/modals/initial-modal";
 import { SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
 import Head from "next/head";
 import { ModeToggle } from "@/components/mode-toggle";
-import Image from "next/image";
 
 const HomePage = async () => {
 
@@ -17,7 +16,9 @@ const HomePage = async () => {
                 <div className="sticky top-0 bg-[#E3E5E8] dark:bg-[#1E1F22] flex flex-row justify-start items-center">
                     <div className="w-full mx-8 my-4 p-4 rounded-lg bg-[#E3E5E8] dark:bg-[#1E1F22] flex flex-row justify-start items-center">
                         <div className="h-[40px] w-[40px]">
-                            <Image alt="mainIcon" src="/darkIcon.png" />
+                            <picture>
+                                <img src="/darkIcon.png" />
+                            </picture>
                         </div>
                         <div className="text-black dark:text-white pl-5 text-xl antialiased font-bold">Vault</div>
                         <div className="flex-1 flex justify-end">
@@ -47,7 +48,9 @@ const HomePage = async () => {
                     <div className="w-full flex mt-8">
                         <div className="w-full flex justify-center items-center">
                             <div className="aspect-video transition-all hover:cursor-pointer hover:scale-[105%] bg-gray-500 w-1/2 rounded-xl overflow-hidden border-[1px] border-gray-800 dark:border-gray-700">
-                                <Image alt="test" src="darkMode1.png" className="w-full h-full" />
+                                <picture>
+                                    <img src="darkMode1.png" className="w-full h-full" />
+                                </picture>
                             </div>
                         </div>
                     </div>
@@ -58,7 +61,9 @@ const HomePage = async () => {
                 <div className="w-full flex flex-row">
                     <div className="w-full flex justify-center items-center p-8">
                         <div className="aspect-video transition-all hover:cursor-pointer hover:scale-[105%] bg-gray-500 w-full rounded-xl overflow-hidden border-[1px] border-gray-800 dark:border-gray-700">
-                            <Image alt="test" src="darkMode1.png" className="w-full h-full" />
+                            <picture>
+                                <img src="darkMode1.png" className="w-full h-full" />
+                            </picture>
                         </div>
                     </div>
                     <div className="w-full flex justify-center items-center flex-col px-12">
@@ -73,14 +78,18 @@ const HomePage = async () => {
                     </div>
                     <div className="w-full flex justify-center items-center p-8">
                         <div className="aspect-video transition-all hover:cursor-pointer hover:scale-[105%] bg-gray-500 w-full rounded-xl overflow-hidden border-[1px] border-gray-800 dark:border-gray-700">
-                            <Image alt="test" src="darkMode1.png" className="w-full h-full" />
+                            <picture>
+                                <img src="darkMode1.png" className="w-full h-full" />
+                            </picture>
                         </div>
                     </div>
                 </div>
                 <div className="w-full pt-32 flex flex-row">
                     <div className="w-full flex justify-center items-center p-8">
                         <div className="aspect-video transition-all hover:cursor-pointer hover:scale-[105%] bg-gray-500 w-full rounded-xl overflow-hidden border-[1px] border-gray-800 dark:border-gray-700">
-                            <Image alt="test" src="darkMode1.png" className="w-full h-full" />
+                            <picture>
+                                <img src="darkMode1.png" className="w-full h-full" />
+                            </picture>
                         </div>
                     </div>
                     <div className="w-full flex justify-center items-center flex-col px-12">
@@ -95,7 +104,9 @@ const HomePage = async () => {
                     </div>
                     <div className="w-full flex justify-center items-center p-8">
                         <div className="aspect-video transition-all hover:cursor-pointer hover:scale-[105%] bg-gray-500 w-full rounded-xl overflow-hidden border-[1px] border-gray-800 dark:border-gray-700">
-                            <Image alt="test" src="darkMode1.png" className="w-full h-full" />
+                            <picture>
+                                <img src="darkMode1.png" className="w-full h-full" />
+                            </picture>
                         </div>
                     </div>
                 </div>
