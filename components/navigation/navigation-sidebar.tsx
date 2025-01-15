@@ -12,7 +12,7 @@ import { UserButton } from "@clerk/nextjs";
 export const NavigationSideBar = async () => {
     const profile = await currentProfile()
     if (!profile) {
-        return redirect("/");
+        return redirect("/home");
     }
 
     const servers = await db.server.findMany({

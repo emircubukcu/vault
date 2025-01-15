@@ -41,7 +41,7 @@ const MemberIdPage = async ({
         }
     })
     if (!currentMember) {
-        return redirect("/")
+        return redirect("/home")
     }
 
     const conversation = await getOrCreateConversation(currentMember.id, memberId)

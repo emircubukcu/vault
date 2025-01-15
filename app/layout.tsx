@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Open_Sans } from 'next/font/google'
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider, SignedIn } from "@clerk/nextjs";
 
 import { cn } from "@/lib/utils";
 
@@ -39,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider afterSignOutUrl={"/home"}>
       <html lang="tr" suppressHydrationWarning>
         <head>
           <link rel="icon" href="/darkIcon.ico" />
