@@ -1,18 +1,23 @@
+"use client"
 import { currentUser } from "@clerk/nextjs/server"
 import { initialProfile } from "@/lib/inital-profile";
 import { db } from "@/lib/db"
 import { read } from "fs";
 import { redirect } from "next/navigation";
 import { InitialModal } from "@/components/modals/initial-modal";
-import { SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
 import Head from "next/head";
 import { ModeToggle } from "@/components/mode-toggle";
 
 const HomePage = async () => {
 
+    const onClick = () => {
+        redirect("/");
+    }
+
     return (
         <>
-            <div >
+            <div>
                 <div className="sticky top-0 bg-[#E3E5E8] dark:bg-[#1E1F22] flex flex-row justify-start items-center">
                     <div className="w-full mx-8 my-4 p-4 rounded-lg bg-[#E3E5E8] dark:bg-[#1E1F22] flex flex-row justify-start items-center">
                         <div className="h-[40px] w-[40px]">
@@ -21,7 +26,7 @@ const HomePage = async () => {
                             </picture>
                         </div>
                         <div className="text-black dark:text-white pl-5 text-xl antialiased font-bold">Vault</div>
-                        <div className="flex-1 flex justify-end">
+                        <div className="flex-1 flex justify-end items-center">
                             <ModeToggle />
                             <SignedOut>
                                 <SignUpButton>
@@ -35,6 +40,15 @@ const HomePage = async () => {
                                     </button>
                                 </SignInButton>
                             </SignedOut >
+                            <SignedIn>
+                                <button type="button" className="flex mx-3 px-4 py-2 rounded-lg hover:rounded-sm transition-all overflow-hidden items-center justify-center bg-background dark:bg-neutral-700 hover:bg-emerald-500 hover:text-white dark:hover:bg-emerald-500" onClick={onClick}>Uygulamaya Devam Et</button>
+                                
+                                <UserButton afterSwitchSessionUrl="/" appearance={{
+                                    elements: {
+                                        avatarBox: "h-[48px] w-[48px]"
+                                    }
+                                }} />
+                            </SignedIn>
                         </div>
                     </div>
                 </div>
