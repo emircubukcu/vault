@@ -46,7 +46,7 @@ const HomePage = async () => {
                     <div className="w-full flex mt-8">
                         <div className="w-full flex justify-center items-center">
                             <div className="aspect-video transition-all hover:cursor-pointer hover:scale-[105%] bg-gray-500 w-1/2 rounded-xl overflow-hidden border-[1px] border-gray-800 dark:border-gray-700">
-                                <img src="darkMode1.png" className="w-full h-full"></img>
+                                <img src="darkMode1.png" className="w-full h-full" />
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@ const HomePage = async () => {
                 <div className="w-full flex flex-row">
                     <div className="w-full flex justify-center items-center p-8">
                         <div className="aspect-video transition-all hover:cursor-pointer hover:scale-[105%] bg-gray-500 w-full rounded-xl overflow-hidden border-[1px] border-gray-800 dark:border-gray-700">
-                            <img src="darkMode1.png" className="w-full h-full"></img>
+                            <img src="darkMode1.png" className="w-full h-full" />
                         </div>
                     </div>
                     <div className="w-full flex justify-center items-center flex-col px-12">
@@ -72,14 +72,14 @@ const HomePage = async () => {
                     </div>
                     <div className="w-full flex justify-center items-center p-8">
                         <div className="aspect-video transition-all hover:cursor-pointer hover:scale-[105%] bg-gray-500 w-full rounded-xl overflow-hidden border-[1px] border-gray-800 dark:border-gray-700">
-                            <img src="darkMode1.png" className="w-full h-full"></img>
+                            <img src="darkMode1.png" className="w-full h-full" />
                         </div>
                     </div>
                 </div>
                 <div className="w-full pt-32 flex flex-row">
                     <div className="w-full flex justify-center items-center p-8">
                         <div className="aspect-video transition-all hover:cursor-pointer hover:scale-[105%] bg-gray-500 w-full rounded-xl overflow-hidden border-[1px] border-gray-800 dark:border-gray-700">
-                            <img src="darkMode1.png" className="w-full h-full"></img>
+                            <img src="darkMode1.png" className="w-full h-full" />
                         </div>
                     </div>
                     <div className="w-full flex justify-center items-center flex-col px-12">
