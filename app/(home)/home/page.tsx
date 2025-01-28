@@ -81,10 +81,10 @@ const HomePage = async () => {
                         <button type="button" className="bg-[#1E1F22] text-white dark:bg-white p-4 dark:text-black rounded-2xl hover:rounded-md transition-all hover:scale-[105%]" onClick={nextSection}>Daha fazla Bilgi</button>
                     </div>
                 </div>
-                <HelpSection image="darkMode1.png" side="right"  sectionID={"1"} sectionType="createServer" title="Sunucu Oluştur" description="Kendi alanınızı yaratmak için bir sunucu oluşturun. Sunucu ismi belirleyin, topluluğunuzu yansıtan bir resim ekleyin."/>
-                <HelpSection image="darkMode1.png" side="left"   sectionID={"2"} sectionType="inviteFriends" title="Arkadaşlarını Davet Et" description="Sunucunuza katılmaları için arkadaşlarına davet bağlantısı gönderin. Bağlantıyı paylaş ve topluluğunu büyüt."/>
-                <HelpSection image="darkMode1.png" side="right"  sectionID={"3"} sectionType="joinVC" title="Sesli Sohbete Katıl" description="Topluluğunuzla birlikte sesli ve görüntülü sohbetler için oluşturulan sohbet kanallarına girin."/>
-                <HelpSection image="darkMode1.png" side="left"   sectionID={"4"} sectionType="downloadApp" title="Uygulama Olarak İndir" description="Sunucuna ulaşımını kolaylaştırmak için uygulamayı indir"/>
+                <HelpSection image="cc0.png" side="right"  sectionID={"1"} sectionType="createServer" title="Sunucu Oluştur" description="Kendi alanınızı yaratmak için bir sunucu oluşturun. Sunucu ismi belirleyin, topluluğunuzu yansıtan bir resim ekleyin."/>
+                <HelpSection image="if0.png" side="left"   sectionID={"2"} sectionType="inviteFriends" title="Arkadaşlarını Davet Et" description="Sunucunuza katılmaları için arkadaşlarına davet bağlantısı gönderin. Bağlantıyı paylaş ve topluluğunu büyüt."/>
+                <HelpSection image="vcj0.png" side="right"  sectionID={"3"} sectionType="joinVC" title="Sesli Sohbete Katıl" description="Topluluğunuzla birlikte sesli ve görüntülü sohbetler için oluşturulan sohbet kanallarına girin."/>
+                <HelpSection image="da0.png" side="left"   sectionID={"4"} sectionType="downloadApp" title="Uygulama Olarak İndir" description="Sunucuna ulaşımını kolaylaştırmak için uygulamayı indir"/>
                 <HelpSection image="darkMode1.png" side="center" sectionID={"5"} sectionType="finalSection" title="Vault'a kayıt ol" description="Birkaç kolay adımda hesabınızı oluşturun ve sohbet etmeye başlayın."/>
             </div>
         </>
