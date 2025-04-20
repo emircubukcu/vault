@@ -10,6 +10,8 @@ import { Loader2, Video } from "lucide-react";
 import { RoomEvent, Track } from "livekit-client";
 import { Slider } from "./ui/slider";
 
+import { motion } from "motion/react"
+
 
 interface MediaRoomProps {
     chatId: string;
@@ -124,7 +126,7 @@ export function VideoConference2({
                                 </FocusLayoutContainer>
                             </div>
                         )}
-                        <ControlBar controls={{ chat: true, settings: !!SettingsComponent }} />
+                        <ControlBar variation="minimal" controls={{ chat: true, settings: !!SettingsComponent }} />
                     </div>
                     <Chat
                         style={{ display: widgetState.showChat ? 'grid' : 'none' }}
@@ -152,15 +154,13 @@ export function VideoConference2({
 export const MediaRoom = ({
     chatId, video, audio
 }: MediaRoomProps) => {
-
+    const [position, setPosition] = useState(1);
     const { user } = useUser()
     const [token, setToken] = useState("")
 
     useEffect(() => {
         if (!user?.firstName || !user?.lastName) return;
-
         const name = `${user.firstName} ${user.lastName}`;
-
         (async () => {
             try {
                 const resp = await fetch(`/api/livekit?room=${chatId}&username=${name}`);
@@ -171,10 +171,16 @@ export const MediaRoom = ({
                 console.log(e);
             }
         })()
-
     }, [user?.firstName, user?.lastName, chatId]);
 
-
+    const moveToggle = () => {
+        if (position == 0) {
+            setPosition(1)
+        }
+        else {
+            setPosition(0)
+        }
+    }
 
     if (token === "") {
         return (
@@ -185,9 +191,14 @@ export const MediaRoom = ({
         )
     }
 
+
     return (
-        <LiveKitRoom data-lk-theme="default" serverUrl={process.env.NEXT_PUBLIC_LIVEKIT_URL} token={token} connect={true} video={video} audio={audio}>
-            <VideoConference />
-        </LiveKitRoom>
+        <>
+            <motion.div className="flex-1" initial={{ opacity: 0, scale: 0.90 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring", bounce: 0, duration: .2 }}>
+                <LiveKitRoom data-lk-theme="default" serverUrl={process.env.NEXT_PUBLIC_LIVEKIT_URL} token={token} connect={true} video={video} audio={audio} >
+                    <VideoConference2 />
+                </LiveKitRoom>
+            </motion.div>
+        </>
     )
 }

@@ -11,6 +11,8 @@ import { FetchNextPageOptions, InfiniteData, InfiniteQueryObserverResult } from 
 import { useChatSocket } from "@/hooks/use-chat-socket";
 import { useChatScroll } from "@/hooks/use-chat-scroll";
 
+import {motion} from "motion/react";
+
 const DATE_FORMAT = "d MMM yyyy HH:mm"
 
 interface ChatMessagesProps {
@@ -96,7 +98,7 @@ export const ChatMessages = ({
 
 
     return (
-        <div ref={chatRef} className="flex-1 flex flex-col py-4 overflow-y-auto">
+        <motion.div initial={{opacity:0,y:-20,filter:"blur(2px)"}} animate={{opacity:1,y:0,filter:"blur(0px)"}} ref={chatRef} className="flex-1 flex flex-col py-4 overflow-y-auto">
             {!hasNextPage && <div className="flex-1" />}
             {!hasNextPage && (
                 <ChatWelcome type={type} name={name} />
@@ -122,6 +124,6 @@ export const ChatMessages = ({
                 ))}
             </div>
             <div ref={bottomRef} />
-        </div>
+        </motion.div>
     )
 }

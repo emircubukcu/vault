@@ -19,6 +19,8 @@ import { useModal } from "@/hooks/use-model.store";
 import { EmojiPicker } from "@/components/emoji-picker";
 import { useRouter } from "next/navigation";
 
+import {motion} from "motion/react";
+
 
 interface ChatInputProps{
     apiUrl:string;
@@ -67,7 +69,7 @@ export const ChatInput=({
 
     return(
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} autoComplete="off">
+            <motion.form initial={{y:20,filter:"blur(2px)"}} animate={{y:0,filter:"blur(0px)"}} transition={{type:"spring",bounce:0,duration:0.2}} onSubmit={form.handleSubmit(onSubmit)} autoComplete="off">
                 <FormField control={form.control} name="content" render={({field})=>(
                     <FormItem>
                         <FormControl>
@@ -83,7 +85,7 @@ export const ChatInput=({
                         </FormControl>
                     </FormItem>
                 )} />
-            </form>
+            </motion.form>
         </Form>
     )
 }

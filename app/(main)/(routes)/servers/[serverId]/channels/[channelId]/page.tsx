@@ -40,12 +40,11 @@ const ChannelIdPage = async ({
         redirect("/home")
     }
 
-    
+
 
     return (
         <>
             <div className="bg-[#F2F3F5] dark:bg-[#2B2D31] rounded-md flex flex-col h-full ">
-
                 <ChatHeader name={channel.name} serverId={channel.serverId} type="channel" />
                 {channel.type === ChannelType.TEXT && (
                     <>
