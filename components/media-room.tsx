@@ -196,7 +196,7 @@ export const MediaRoom = ({
         <>
             <motion.div className="flex-1" initial={{ opacity: 0, scale: 0.90 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring", bounce: 0, duration: .2 }}>
                 <LiveKitRoom data-lk-theme="default" serverUrl={process.env.NEXT_PUBLIC_LIVEKIT_URL} token={token} connect={true} video={video} audio={audio} >
-                    <VideoConference2 />
+                    <VideoConference />
                 </LiveKitRoom>
             </motion.div>
         </>
