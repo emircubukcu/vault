@@ -11,7 +11,7 @@ const MainLayout = async ({ children }: { children: React.ReactNode }) => {
                 <div className="max-md:hidden md:flex  h-full w-[80px] z-30 flex-col fixed inset-y-0 p-2">
                     <NavigationSideBar />
                 </div>
-                <motion.div initial={{ scale:0.90,filter:"blur(4px)",x:-10}} animate={{x:0,filter:"blur(0px)",scale:1}} transition={{type:"spring",bounce:0,duration:.4}} className="md:pl-[80px] h-full">
+                <motion.div initial={{opacity:0,scale:0.90,filter:"blur(4px)",x:-10}} animate={{opacity:1,x:0,filter:"blur(0px)",scale:1}} transition={{type:"spring",bounce:0,duration:.4}} className="md:pl-[80px] h-full">
                     {children}
                 </motion.div>
             </div>

@@ -11,6 +11,8 @@ import { ServerSection } from "./server-section"
 import { ServerChannel } from "./server-channel"
 import { ServerMember } from "./server-member"
 
+import * as motion from "motion/react-client"
+
 interface ServerSidebarProps {
     serverId: string
 }
@@ -67,7 +69,7 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
     const role = server.members.find((member) => member.profileId === profile.id)?.role;
 
     return (
-        <div className="flex flex-col h-full text-primary w-full dark:bg-[#2B2D31] bg-[#F2F3F5] rounded-md">
+        <motion.div initial={{filter:"blur(4px)"}} animate={{filter:"blur(0px)"}} transition={{type:"spring",bounce:0,duration:.4}} className="flex flex-col h-full text-primary w-full dark:bg-[#2B2D31] bg-[#F2F3F5] rounded-md">
             <ServerHeader server={server} role={role} />
             <ScrollArea className="flex-1 px-3">
                 <div className="mt-2">
@@ -153,6 +155,6 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
                     </div>
                 )}
             </ScrollArea>
-        </div>
+        </motion.div>
     )
 }

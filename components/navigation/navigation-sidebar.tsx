@@ -9,6 +9,8 @@ import { NavigationAction } from "./navigation-action";
 import { ModeToggle } from "@/components/mode-toggle";
 import { UserButton } from "@clerk/nextjs";
 
+import * as motion from "motion/react-client"
+
 export const NavigationSideBar = async () => {
     const profile = await currentProfile()
     if (!profile) {
@@ -27,7 +29,7 @@ export const NavigationSideBar = async () => {
 
 
     return (
-        <div className="space-y-4 flex flex-col items-center h-full text-primary w-full bg-[#E3E5E8]  dark:bg-[#1E1F22] py-3 rounded-md">
+        <motion.div initial={{ scale:0.90,filter:"blur(4px)",x:-100}} animate={{x:0,filter:"blur(0px)",scale:1}} transition={{type:"spring",bounce:0,duration:.4}}  className="space-y-4 flex flex-col items-center h-full text-primary w-full bg-[#E3E5E8]  dark:bg-[#1E1F22] py-3 rounded-md">
             <NavigationAction />
             <Separator className="h-[2px] bg-zinc-300 dark:bg-zinc-700 rounded-md w-10 mx-auto" />
             <ScrollArea className="flex-1 w-full">
@@ -45,7 +47,7 @@ export const NavigationSideBar = async () => {
                     }
                 }}/>
             </div>
-        </div>
+        </motion.div>
     );
 }
 
