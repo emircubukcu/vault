@@ -11,6 +11,7 @@ import { ModalProvider } from "@/components/ui/providers/modal-provider";
 import { SocketProvider } from "@/components/ui/providers/socket-provider";
 import { QueryProvider } from "@/components/ui/providers/query-provider";
 import manifest from "./manifest";
+import { ThemeColorChanger } from "@/components/theme-color-changer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -46,6 +47,7 @@ export default function RootLayout({
         </head>
         <body className={cn(`${openSansFont.className} antialiased`, "bg-white dark:bg-[#313338]")}>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} storageKey="vault-theme">
+            <ThemeColorChanger lightThemeColor="#ffffff" darkThemeColor="#313338" />
             <SocketProvider>
               <ModalProvider />
               <QueryProvider>
