@@ -33,7 +33,6 @@ export const ChatHeader = ({
                 {type==="conversation" &&(
                     <ChatVideoButton />
                 )}
-                <SocketIndicator />
             </div>
         </div>
     )

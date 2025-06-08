@@ -16,7 +16,7 @@ export const useChatQuery = async ({
     paramKey,
     paramValue,
 }: ChatQueryProps) => {
-    const { isConnected } = useSocket()
+    //const { isConnected } = useSocket()
     
     const fetchMessages = async ({ pageParam = undefined }) => {
         const url = qs.stringifyUrl({
@@ -40,7 +40,7 @@ export const useChatQuery = async ({
         queryKey:[queryKey],
         queryFn:fetchMessages,
         getNextPageParam:(lastPage)=>lastPage?.nextCursor,
-        refetchInterval:isConnected?false:1000,
+        refetchInterval:60000,//isConnected?false:1000,
         initialPageParam:undefined
     });
 

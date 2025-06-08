@@ -36,7 +36,7 @@ const ServerIdLayout = async ({
             <div className="max-md:hidden md:flex h-full w-60 z-30 flex-col fixed inset-y-0 py-2 pr-2">
                 <ServerSidebar serverId={serverId}/>
             </div>
-            <motion.div key={serverId} initial={{scale:0.95,opacity:0,filter:"blur(2px)"}} animate={{scale:1,opacity:1,filter:"blur(0px)"}} transition={{duration:0.8,type:"spring",bounce:0}} className="h-full md:pl-60 md:py-2 md:pr-2 z-20 relative">
+            <motion.div key={serverId} initial={{scale:0.95,opacity:0,filter:"blur(2px)"}} animate={{scale:1,opacity:1,filter:"blur(0px)"}} transition={{duration:0.8,type:"spring",bounce:0}} className="h-full p-2 md:pl-60 md:py-2 md:pr-2 z-20 relative">
                 {children}
             </motion.div>
         </div>

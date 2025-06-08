@@ -119,8 +119,8 @@ export function VideoConference2({
                             <div className="lk-focus-layout-wrapper">
                                 <FocusLayoutContainer>
                                     <CarouselLayout tracks={carouselTracks}>
-                                        <ParticipantTile />
-                                        <Slider defaultValue={[33]} max={100} step={1} />
+                                        <ParticipantTile>
+                                        </ParticipantTile>
                                     </CarouselLayout>
                                     {focusTrack && <FocusLayout trackRef={focusTrack} />}
                                 </FocusLayoutContainer>
@@ -196,7 +196,7 @@ export const MediaRoom = ({
         <>
             <motion.div className="flex-1" initial={{ opacity: 0, scale: 0.90 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring", bounce: 0, duration: .2 }}>
                 <LiveKitRoom data-lk-theme="default" serverUrl={process.env.NEXT_PUBLIC_LIVEKIT_URL} token={token} connect={true} video={video} audio={audio} >
-                    <VideoConference />
+                    <VideoConference2 />
                 </LiveKitRoom>
             </motion.div>
         </>
